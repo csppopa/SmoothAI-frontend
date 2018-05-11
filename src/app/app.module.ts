@@ -8,6 +8,7 @@ import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import {Camera} from '@ionic-native/camera';
 
+import { PostPictureProvider } from '../providers/post-picture/post-picture';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import {Camera} from '@ionic-native/camera';
     StatusBar,
     SplashScreen,
     Camera,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    PostPictureProvider
   ]
 })
 export class AppModule {}
