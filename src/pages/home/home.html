@@ -13,8 +13,11 @@
 <!--</ion-header>-->
 
 
-<ion-content>
-  <ion-fab center middle>
-    <button ion-fab color="danger" (click)="takePicture()"><ion-icon name="add"></ion-icon></button>
+<ion-content class="home">
+  <ion-fab center bottom >
+    <button ion-fab (click)="takePicture()" mini><ion-icon name="add"></ion-icon></button>
   </ion-fab>
+
 </ion-content>
+
+<input #cameraInput type="file" accept="image/*" capture="camera" />
