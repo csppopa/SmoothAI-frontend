@@ -14,10 +14,65 @@
 
 
 <ion-content class="home">
-  <ion-fab center bottom class="animated pulse infinite" >
-    <button ion-fab (click)="takePicture()" mini><ion-icon name="camera"></ion-icon></button>
-  </ion-fab>
+  <ion-slides pager [ngStyle]="{ 'height': slidesMoving ? 'auto' : '100%' }"
+              (ionSlideDidChange)="slideDidChange()"
+              (ionSlideWillChange)="slideWillChange()">
+    <ion-slide>
+      <img class="make-smoothie center animated tada" src="/assets/imgs/make-smoothie.png"/>
+      <ion-fab center bottom class="animated pulse infinite" >
+        <button ion-fab  mini><img src="/assets/imgs/smoothie-glass.png"/></button>
+        <div class="side">
+          <ion-fab-list side="left">
+            <button ion-fab (click)="takePicture()"><ion-icon name="camera"></ion-icon></button>
+          </ion-fab-list>
+          <ion-fab-list side="right">
+            <button ion-fab (click)="clickBrowseFiles()"><ion-icon name="folder"></ion-icon></button>
+          </ion-fab-list>
+        </div>
+      </ion-fab>
+    </ion-slide>
+    <ion-slide class="list-recipes">
+      <!--<ion-card >-->
+        <!--<img src="/assets/imgs/smoothies.jpg"/>-->
+
+        <!--<ion-list *ngFor="let recipe of recipes">-->
+          <!--<ion-card-content>-->
+            <!--<ion-card-title>-->
+              <!--{{recipe.name}}-->
+            <!--</ion-card-title>-->
+          <!--</ion-card-content>-->
+
+          <!--<ion-card-title>-->
+            <!--Ingredients:-->
+          <!--</ion-card-title>-->
+          <!--<ion-item *ngFor="let ingredient of recipe.ingredients">-->
+            <!--<ion-icon name='checkmark-circle' item-start style="color: rgba(78,223,64,0.83)"></ion-icon>-->
+            <!--{{ingredient.fruit}}-->
+            <!--{{ingredient.quantity}}-->
+          <!--</ion-item>-->
+        <!--</ion-list>-->
+
+
+
+      <!--</ion-card>-->
+          <flash-card class="recipe" *ngFor="let recipe of recipes" >
+            <div class="fc-front">
+              <img src="/assets/imgs/smoothies.jpg" />
+              <h2 text-center>{{recipe.name}}</h2>
+            </div>
+            <div class="fc-back">
+              <!--<img src="/assets/imgs/smoothies.jpg" />-->
+              <h2 text-center>{{recipe.name}}</h2>
+              <hr />
+              <div  *ngFor="let step of recipe.preparation">
+                <p >{{step}}</p>
+              </div>
+            </div>
+          </flash-card>
+    </ion-slide>
+  </ion-slides>
 
 </ion-content>
 
-<input #cameraInput type="file" accept="image/*" capture="camera" />
+<input #cameraInput type="file" accept="image/*" capture="camera"(change)="imageTaken()" />
+<input #browseFiles type="file" accept="image/*"   (change)="fileSelected()"/>

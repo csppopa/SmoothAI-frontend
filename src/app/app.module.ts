@@ -9,15 +9,19 @@ import { HomePage } from '../pages/home/home';
 import {Camera} from '@ionic-native/camera';
 
 import { PostPictureProvider } from '../providers/post-picture/post-picture';
+import {HttpClient, HttpClientModule} from "@angular/common/http";
+import {FlashCardComponent} from "../components/flash-card/flash-card";
 
 @NgModule({
   declarations: [
     MyApp,
-    HomePage
+    HomePage,
+    FlashCardComponent
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    HttpClientModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [

@@ -1,6 +1,15 @@
 page-home {
+  .make-smoothie {
+    position: fixed;
+    width: 78vw;
+    left: calc(11vw);
+    top: 25vh;
+  }
+  .pulse {
+    animation-delay: 1.5s;
+  }
   .home {
-    background: linear-gradient(to bottom, #33ccff 0%, #0066cc 100%) !important;
+    background: linear-gradient(to bottom, #8a6bc4 0%, #452A67 100%) !important;
   }
   .fab[mini] {
     padding: 0;
@@ -8,6 +17,7 @@ page-home {
     width: 36vw;
     height: 36vw;
     line-height: 50vw;
+    z-index: 100;
   }
   ion-fab[center] {
     left: 32vw;
@@ -18,10 +28,47 @@ page-home {
     margin-bottom: 0;
   }
   .fab {
-    background: #5BC1FF;
+    //background: #5BC1FF;
+    background: #7d62aa;
   }
+  ion-fab-list[side=left] .fab-in-list, ion-fab-list[side=right] .fab-in-list {
+    margin: 12vw 23vw;
+  }
+  .fab[mini] .fab-close-icon {
+    margin-top: 7vh;
+  }
+
   .fab ion-icon {
     font-size: 5rem;
+  }
+  .side {
+    .fab ion-icon {
+      font-size: 3rem;
+      width: 5rem;
+      color: white;
+    }
+  }
+  .ng-hide-add,
+  .ng-hide-remove {
+    display: none !important;
+  }
+  .card-ios {
+    width:100%;
+    margin: 0;
+  }
+  .card-md {
+    margin: 0;
+    width: 100%;
+  }
+  .recipe {
+    margin-bottom: 30px;
+    //padding-bottom: 50px;
+  }
+  :host /deep/ button.swiper-pagination-bullet {
+    background: #fefefe !important;
+  }
+  :host /deep/ .pagination-bullet-active {
+    background: #fefefe !important;
   }
 }
 

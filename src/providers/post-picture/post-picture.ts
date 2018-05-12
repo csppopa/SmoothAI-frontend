@@ -1,7 +1,9 @@
-import { HttpClient } from '@angular/common/http';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 import { FileTransfer, FileUploadOptions, FileTransferObject } from '@ionic-native/file-transfer';
+import {Observable} from "rxjs/Observable";
+import {RequestOptions} from "@angular/http";
 
 /*
   Generated class for the PostPictureProvider provider.
@@ -13,27 +15,41 @@ import { FileTransfer, FileUploadOptions, FileTransferObject } from '@ionic-nati
 export class PostPictureProvider {
 
   constructor(
-    private http: HttpClient,
-    private transfer: FileTransfer) {
+    private http: HttpClient) {
   }
 
-  uploadFile(imageUri:string, uploadUrl:string) {
-    const fileTransfer: FileTransferObject = this.transfer.create();
+  public uploadFile(image: File): Observable<any> {
+    let formData = new FormData();
+    formData.append('uploadedFile', image);
+    let headers = new HttpHeaders();
+    headers.append('Access-Control-Allow-Origin', '*');
+    headers.append( 'enctype', 'multipart/form-data' );
 
-    let options: FileUploadOptions = {
-      fileKey: 'ionicfile',
-      fileName: 'ionicfile',
-      chunkedMode: false,
-      mimeType: "image/jpeg",
-      headers: {}
-    }
+    return this.http.post(
+      "/api/recipes",
+      formData,
+      {headers: headers}
+      );
 
-    fileTransfer.upload(imageUri, uploadUrl, options)
-      .then((data) => {
-        console.log(data+" Uploaded Successfully");
-      }, (err) => {
-        console.log(err);
-      });
+  }
+
+  uploadFileNative(imageUri:string, uploadUrl:string) {
+    // const fileTransfer: FileTransferObject = this.transfer.create();
+    //
+    // let options: FileUploadOptions = {
+    //   fileKey: 'ionicfile',
+    //   fileName: 'ionicfile',
+    //   chunkedMode: false,
+    //   mimeType: "image/jpeg",
+    //   headers: {}
+    // }
+    //
+    // fileTransfer.upload(imageUri, uploadUrl, options)
+    //   .then((data) => {
+    //     console.log(data+" Uploaded Successfully");
+    //   }, (err) => {
+    //     console.log(err);
+    //   });
   }
 
 }
