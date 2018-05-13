@@ -1,5 +1,5 @@
 import {Component, ElementRef, ViewChild} from '@angular/core';
-import {IonicPage,  LoadingController, NavController, NavParams, Slides} from 'ionic-angular';
+import {IonicPage, LoadingController, NavController, NavParams, Slides, ToastController} from 'ionic-angular';
 import {PostPictureProvider} from "../../providers/post-picture/post-picture";
 /**
  * Generated class for the HomePage page.
@@ -321,7 +321,8 @@ export class HomePage {
     public navCtrl: NavController,
     public navParams: NavParams,
     private postPictureProvider: PostPictureProvider,
-    public loadingController: LoadingController
+    public loadingController: LoadingController,
+    public toastCtrl: ToastController
   ) {
   }
 
@@ -348,9 +349,22 @@ export class HomePage {
     console.log(this.image);
     this.postPictureProvider.uploadFile(this.image).subscribe(
       data => {
-        this.recipes = data;
-        this.slides.slideTo(1);
-        loader.dismiss();
+        if(data.length > 0) {
+          this.recipes = data;
+          this.slides.slideTo(1);
+          loader.dismiss();
+
+        } else {
+          loader.dismiss();
+
+          let toast = this.toastCtrl.create({
+            message: 'No recipes :(',
+            duration: 2000,
+            position: 'top'
+          });
+
+          toast.present(toast);
+        }
         // console.log(data);
       }
     )
