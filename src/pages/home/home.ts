@@ -335,7 +335,7 @@ export class HomePage {
   }
 
   fileSelected(){
-    this.uploadFile(this.cameraInput.nativeElement.files[0]);
+    this.uploadFile(this.browseFiles.nativeElement.files[0]);
   }
 
   uploadFile(event) {
