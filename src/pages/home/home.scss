@@ -80,6 +80,8 @@ page-home {
     width: 100%;
   }
   .recipe {
+    width: calc(100vw - 10px);
+    padding-left: 10px;
     margin-bottom: 30px;
     //padding-bottom: 50px;
   }

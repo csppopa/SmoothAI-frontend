@@ -1,4 +1,6 @@
 flash-card {
+  width: calc(100% - 20px);
+  padding-left: 10px;
   color:#7d62aa;
   &{
     perspective: 1000px;

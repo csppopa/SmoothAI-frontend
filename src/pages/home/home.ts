@@ -19,7 +19,7 @@ export class HomePage {
   slidesMoving: boolean;
   recipes: any = [
     {
-      "name": "missing 1!",
+      "name": "J-Smoothie fo' hangover'",
       "ingredients":
         [
           {
@@ -45,7 +45,7 @@ export class HomePage {
       "serves": 1
     },
     {
-      "name": "missing 2!",
+      "name": "J-Smoothie orange Mania",
       "ingredients":
         [
           {
@@ -71,7 +71,7 @@ export class HomePage {
       "serves": 1
     },
     {
-      "name": "missing 3!",
+      "name": "J-Smoothie bananas on the rise",
       "ingredients":
         [
           {
@@ -106,23 +106,23 @@ export class HomePage {
           },
           {
             "name": "vanilla yogurt",
-            "value": "1/2 cup of vanilla yogurt"
+            "value": "1/2 cup"
           },
           {
             "name": "milk",
-            "value": "1/2 cup of milk"
+            "value": "1/2 cup"
           },
           {
             "name": "honey",
-            "value": "2 teaspoons of honey"
+            "value": "2 teaspoons"
           },
           {
             "name": "cinnamon",
-            "value": "a pinch of cinnamon"
+            "value": "a pinch of it"
           },
           {
             "name": "ice",
-            "value": "1 cup of ice (optional)"
+            "value": "1 cup (optional)"
           }
         ],
       "preparation":
@@ -140,23 +140,23 @@ export class HomePage {
         [
           {
             "name": "banana",
-            "value": "1 frozen banana"
+            "value": "1 frozen"
           },
           {
             "name": "soy milk",
-            "value": "1 cup of soy milk"
+            "value": "1 cup"
           },
           {
             "name": "peanut butter",
-            "value": "1/4 cup of creamy peanut butter"
+            "value": "1/4 cup"
           },
           {
             "name": "wheat germ",
-            "value": "1/4 cup of wheat germ"
+            "value": "1/4 cup"
           },
           {
             "name": "seedless strawberry",
-            "value": "2 tablespoons seedless strawberry"
+            "value": "2 tablespoons"
           }
         ],
       "preparation":
@@ -174,23 +174,23 @@ export class HomePage {
         [
           {
             "name": "banana",
-            "value": "2 bananas"
+            "value": "2 pieces"
           },
           {
             "name": "date",
-            "value": "3/4 cup chopped pitted dates"
+            "value": "3/4 cup (chopped pitted)"
           },
           {
             "name": "soy milk",
-            "value": "1/2 cups of soy milk"
+            "value": "1/2 cups"
           },
           {
             "name": "lime",
-            "value": "the juice of 1 lime"
+            "value": "the juice of 1 piece"
           },
           {
             "name": "ice",
-            "value": "1/2 cups of ice (optional)"
+            "value": "1/2 cups (optional)"
           }
         ],
       "preparation":
@@ -210,30 +210,93 @@ export class HomePage {
         [
           {
             "name": "banana",
-            "value": "1 banana"
+            "value": "1"
           },
           {
             "name": "chocolate ice cream",
-            "value": "1 cup of chocolate ice cream"
+            "value": "1 cup"
           },
           {
             "name": "milk",
-            "value": "1/2 cups of soy milk"
+            "value": "1/2 cups"
           },
           {
             "name": "salt",
-            "value": "a pinch of salt "
+            "value": "a pinch of it "
           },
           {
             "name": "ice",
-            "value": "1/2 cups of ice (optional)"
+            "value": "1/2 cups(optional)"
           }
         ],
       "preparation":
         [
           "Peel the banana",
-          "Chop the dates",
-          "Squeeze the lime",
+          "Put everything in blender",
+          "Blend thoroughly",
+          "Pass through a sieve"
+        ],
+      "serves": 1
+    },
+    {
+      "name": "Carrot Apple",
+      "ingredients":
+        [
+          {
+            "name": "carrot",
+            "value": "1 cup of juice"
+          },
+          {
+            "name": "apple",
+            "value": "1 cup of juice"
+          },
+          {
+            "name": "ice",
+            "value": "1 1/2 cup"
+          }
+        ],
+      "preparation":
+        [
+          "Make Apple juice",
+          "Make Carrot juice",
+          "Put everything in blender",
+          "Blend thoroughly",
+          "Pass through a sieve"
+        ],
+      "serves": 1
+    },
+    {
+      "name": "PeanutButter Apple",
+      "ingredients":
+        [
+          {
+            "name": "apple",
+            "value": "1 (chopped and peeled)"
+          },
+          {
+            "name": "peanut butter",
+            "value": "3 tablespoons"
+          },
+          {
+            "name": "flaxseeds",
+            "value": "2 tablespoons"
+          },
+          {
+            "name": "soy milk",
+            "value": "1 1/2 cups"
+          },
+          {
+            "name": "ice",
+            "value": "1 1/2 cups"
+          },
+          {
+            "name": "honey",
+            "value": "to taste"
+          }
+        ],
+      "preparation":
+        [
+          "Peel and chop the apple",
           "Put everything in blender",
           "Blend thoroughly",
           "Pass through a sieve"
@@ -277,7 +340,7 @@ export class HomePage {
   uploadFile(event) {
 
     let loader = this.loadingController.create({
-      spinner: 'true',
+      spinner: 'default',
       content: "Fetching recipes..."
     });
     loader.present();
