@@ -1,5 +1,5 @@
 import {Component, ElementRef, ViewChild} from '@angular/core';
-import {IonicPage, NavController, NavParams, Slides} from 'ionic-angular';
+import {IonicPage,  LoadingController, NavController, NavParams, Slides} from 'ionic-angular';
 import {PostPictureProvider} from "../../providers/post-picture/post-picture";
 /**
  * Generated class for the HomePage page.
@@ -242,44 +242,9 @@ export class HomePage {
     }
   ];
 
-  // flashCards = [
-  //   {
-  //     front: {
-  //       image: 'assets/imgs/smoothies.jpg',
-  //       // subtitle: 'नमस्ते',
-  //       title: 'Banana Smoothie'
-  //       },
-  //     back: {
-  //       title: 'Banana Smoothie',
-  //       // subtitle: 'Hello, Greetings, I bless the divine in you',
-  //       content: 'It is used to greet people every time they meet. It is usually initiated by the juniors'
-  //     }
-  //   },
-  //   {
-  //     front: {
-  //       image: 'assets/imgs/smoothies.jpg',
-  //       title: '(Tapailai) Kasto chha?',
-  //       // subtitle: '( तपाईंलाई ) कस्तो छ ?'
-  //     },
-  //     back: {
-  //       title: 'Banana Smoothie',
-  //       // subtitle: 'How are you?',
-  //       content: 'It is used to ask people how they are doing or feeling.'
-  //     }
-  //   },
-  //   {
-  //     front: {
-  //       image: 'assets/imgs/smoothies.jpg',
-  //       title: 'Maaph garnuhos',
-  //       // subtitle: 'माफ गर्नुहोस्'
-  //     },
-  //     back: {
-  //       title: 'Banana Smoothie',
-  //       // subtitle: 'Excuse me/ pardon me / Sorry',
-  //       content: 'It is used to ask for forgiveness when you do make mistakes.'
-  //     }
-  //   }
-  // ];
+
+  smoothieFab: ElementRef;
+
   @ViewChild("cameraInput")
   cameraInput: ElementRef;
 
@@ -292,11 +257,10 @@ export class HomePage {
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
-    private postPictureProvider: PostPictureProvider
+    private postPictureProvider: PostPictureProvider,
+    public loadingController: LoadingController
   ) {
   }
-
-
 
   clickBrowseFiles() {
     this.browseFiles.nativeElement.click();
@@ -311,12 +275,19 @@ export class HomePage {
   }
 
   uploadFile(event) {
+
+    let loader = this.loadingController.create({
+      spinner: 'true',
+      content: "Fetching recipes..."
+    });
+    loader.present();
     this.image = event;
     console.log(this.image);
     this.postPictureProvider.uploadFile(this.image).subscribe(
       data => {
         this.recipes = data;
         this.slides.slideTo(1);
+        loader.dismiss();
         // console.log(data);
       }
     )

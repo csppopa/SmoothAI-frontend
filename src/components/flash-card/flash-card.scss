@@ -1,4 +1,5 @@
 flash-card {
+  color:#7d62aa;
   &{
     perspective: 1000px;
   }
@@ -18,8 +19,8 @@ flash-card {
       z-index: 2;
       backface-visibility: hidden;
       //padding-top: 20px;
-      padding-bottom: 20px;
-      background: #f2f2f2;
+      //padding-bottom: 20px;
+      background: #e6e6e6;
       transform: rotateY(0deg);
     }
 
@@ -28,9 +29,9 @@ flash-card {
       position: absolute;
       top:0;
       left:0;
-      background: #f2f2f2;
+      background: #e6e6e6;
       //padding-top: 20px;
-      padding-bottom: 20px;
+      //padding-bottom: 20px;
       transform: rotateY(180deg);
     }
 
@@ -44,5 +45,6 @@ flash-card {
     }
 
   }
+  padding-bottom: 30px;
 
 }

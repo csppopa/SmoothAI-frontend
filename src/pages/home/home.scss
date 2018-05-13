@@ -1,4 +1,17 @@
 page-home {
+  .inline {
+    display:inline !important;
+  }
+  .fruit {
+
+    font-weight: bold;
+    text-transform: capitalize;
+  }
+
+  .item-ios, .item-md{
+    background: transparent;
+    font-weight: bold ;
+  }
   .make-smoothie {
     position: fixed;
     width: 78vw;
@@ -7,6 +20,10 @@ page-home {
   }
   .pulse {
     animation-delay: 1.5s;
+  }
+  page-home .fab[mini] .fab-close-icon {
+    color:#fefefe;
+    background: #fefefe !important;
   }
   .home {
     background: linear-gradient(to bottom, #8a6bc4 0%, #452A67 100%) !important;
@@ -33,6 +50,8 @@ page-home {
   }
   ion-fab-list[side=left] .fab-in-list, ion-fab-list[side=right] .fab-in-list {
     margin: 12vw 23vw;
+    height: 20vw;
+    width: 20vw;
   }
   .fab[mini] .fab-close-icon {
     margin-top: 7vh;
@@ -53,7 +72,7 @@ page-home {
     display: none !important;
   }
   .card-ios {
-    width:100%;
+    width: 100%;
     margin: 0;
   }
   .card-md {
@@ -69,6 +88,25 @@ page-home {
   }
   :host /deep/ .pagination-bullet-active {
     background: #fefefe !important;
+  }
+
+  .title-card-front {
+    font-family: "Yellowtail";
+    font-size: 5rem;
+    padding-top: 25px;
+    font-weight: bolder;
+    text-transform: capitalize;
+  }
+
+  .title-card-front-back {
+    font-family: "Yellowtail";
+    font-size: 3rem;
+    padding-top: 25px;
+    font-weight: bolder;
+    text-transform: capitalize;
+  }
+  .card-md h2 {
+    color: #7d62aa;
   }
 }
 

@@ -19,8 +19,8 @@
               (ionSlideWillChange)="slideWillChange()">
     <ion-slide>
       <img class="make-smoothie center animated tada" src="/assets/imgs/make-smoothie.png"/>
-      <ion-fab center bottom class="animated pulse infinite" >
-        <button ion-fab  mini><img src="/assets/imgs/smoothie-glass.png"/></button>
+      <ion-fab center bottom class="main-fab animated pulse infinite" >
+        <button ion-fab  mini ><img src="/assets/imgs/smoothie-glass.png"/></button>
         <div class="side">
           <ion-fab-list side="left">
             <button ion-fab (click)="takePicture()"><ion-icon name="camera"></ion-icon></button>
@@ -55,20 +55,31 @@
 
 
       <!--</ion-card>-->
-          <flash-card class="recipe" *ngFor="let recipe of recipes" >
+      <div class="recipe" *ngFor="let recipe of recipes">
+          <flash-card>
             <div class="fc-front">
               <img src="/assets/imgs/smoothies.jpg" />
-              <h2 text-center>{{recipe.name}}</h2>
+              <h2 class="title-card-front"  text-center>{{recipe.name}}</h2>
             </div>
             <div class="fc-back">
               <!--<img src="/assets/imgs/smoothies.jpg" />-->
-              <h2 text-center>{{recipe.name}}</h2>
+              <h2 class="title-card-front-back" text-center>{{recipe.name}}</h2>
               <hr />
-              <div  *ngFor="let step of recipe.preparation">
+              <div *ngFor="let ingredient of recipe.ingredients">
+                <ion-item >
+                  <ion-icon class="inline" name='checkmark-circle' item-start style="color: rgba(78,223,64,0.83)"></ion-icon>
+                  <p class="inline fruit">{{ingredient.name}}</p>
+                  <p float-right class="inline">{{ingredient.value}}</p>
+                </ion-item>
+              </div>
+              <hr />
+              <div *ngFor="let step of recipe.preparation">
+                <p class="fruit">Step {{recipe.preparation.indexOf(step)+1}}/{{recipe.preparation.length}}:    </p>
                 <p >{{step}}</p>
               </div>
             </div>
           </flash-card>
+      </div>
     </ion-slide>
   </ion-slides>
 
